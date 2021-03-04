@@ -5,7 +5,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 
 sets = np.arange(1,14)
-Es = np.array([.7,.8,1.2,2.7,5.4,9.5,14.7,19.9,24.0,28.4,31.1,33.4,34.2])
+Es = np.array([.7,.8,1.2,2.7,5.4,9.5,14.7,19.9,24.0,28.4,31.1,33.4,34.2])*25.0/34.2
 
 def fcn2min(params,x,data,plot_fit=False):
 	a = params['a']
@@ -50,6 +50,9 @@ print('a: ',result.params['a'].value)
 print('b: ',result.params['b'].value)
 print('c: ',result.params['c'].value)
 print('d: ',result.params['d'].value)
+
+for i in range(len(Es)):
+	print('Tick {} = {} mJ'.format(sets[i],np.round(Es[i],2)))
 
 plt.figure()
 plt.scatter(sets,Es)
